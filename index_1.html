@@ -15,13 +15,13 @@
 		
 	<script type="text/javascript">
 		var min = 0, sec = 0;
-		var pauseMain = 0;
 		var pause = 0;
 		function stopwatch() {
 			if(pause % 2 == 1) {
 				if(sec == 59) {
 					sec = 0;
 					min++;
+					document.getElementById("min").value = "0" + min;
 				}
 				else if(sec == 59 && min == 59) {
 					min = 0;
@@ -35,11 +35,11 @@
 					sec = "0" + sec;
 					document.getElementById("sec").value = sec;	
 				}
-				if(min <= 9) {
-					min = "0" + min;
-					document.getElementById("min").value = min;	
+				if("0" + min != document.getElementById("min").value) {
+					document.getElementById("min").value = "0" + min;
+				} else if(min != document.getElementById("min").value) {
+					document.getElementById("min").value = min;
 				}
-				document.getElementById("min").value = min;
 				document.getElementById("sec").value = sec;
 			}
 			else
@@ -54,7 +54,9 @@
 		};
 
 		function refresh() {
-			pause++;
+			if(pause == 1){
+				pause++;
+			}
 			min = 0;
 			sec = 0;
 			document.getElementById("min").value = "00";
