@@ -35,10 +35,10 @@
 					sec = "0" + sec;
 					document.getElementById("sec").value = sec;	
 				}
-				if("0" + min != document.getElementById("min").value) {
-					document.getElementById("min").value = "0" + min;
-				} else if(min != document.getElementById("min").value) {
+				if(min != document.getElementById("min").value) {
 					document.getElementById("min").value = min;
+				} else if("0" + min != document.getElementById("min").value) {
+					document.getElementById("min").value = "0" + min;
 				}
 				document.getElementById("sec").value = sec;
 			}
